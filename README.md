@@ -1,32 +1,34 @@
-========================
-BUILD OUTPUT DESCRIPTION
-========================
+# Apresentando BuilderGen #
 
-When you build an Java application project that has a main class, the IDE
-automatically copies all of the JAR
-files on the projects classpath to your projects dist/lib folder. The IDE
-also adds each of the JAR files to the Class-Path element in the application
-JAR files manifest file (MANIFEST.MF).
+BuilderGen é um gerador de versões para projetos de software. Seu uso é simples e fácil, e é dedicado para projetos pequenos.
 
-To run the project from the command line, go to the dist folder and
-type the following:
+BuilderGen não é um repositório Git nem SVN. BuilderGen é um gerador de versões que segue o [http://semver.org]
 
-java -jar "BuilderGen.jar" 
+## Qualquer projeto pode utilizar o BuilderGen ##
 
-To distribute this project, zip up the dist folder (including the lib folder)
-and distribute the ZIP file.
+BuilderGen gera versões sequenciais de builds number. Por exemplo, em builds da Microsoft você sabe que 1109 é bem antes da 14563. Contudo, a 14573 tem poucas diferenças para a 14563.
 
-Notes:
+##Versão atual##
 
-* If two JAR files on the project classpath have the same name, only the first
-JAR file is copied to the lib folder.
-* Only JAR files are copied to the lib folder.
-If the classpath contains other types of files or folders, these files (folders)
-are not copied.
-* If a library on the projects classpath also has a Class-Path element
-specified in the manifest,the content of the Class-Path element has to be on
-the projects runtime path.
-* To set a main class in a standard Java project, right-click the project node
-in the Projects window and choose Properties. Then click Run and enter the
-class name in the Main Class field. Alternatively, you can manually type the
-class name in the manifest Main-Class element.
+1.3.5-20170105_183729
+
+##Requisitos##
+
+*Java na versão 1.8
+*Linux
+***Não testado em Mac**
+
+##Recomendações##
+
+Recomendamos que o projeto utilize Git, Composer e Linux.
+
+##Formatação##
+
+O formato atual das versões é ```1.0.{build}-{yyyyMMdd}_{HHmmss}```
+O suporte a edição do formato será liberado em breve.
+
+##Problemas e Sugestões##
+
+Repositório BuilderGen no Github
+
+Leia nosso Guia de Usuário. (Ainda)
