@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+
+.masthead {
+  text-align: center;
+}
+
+.masthead h1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.nav>li>a:hover {
+  text-decoration: none;
+  background-color: transparent;
+}
+.footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+}

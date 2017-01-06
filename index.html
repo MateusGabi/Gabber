@@ -4,31 +4,40 @@
 	<title></title>
 
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	<link rel="stylesheet" href="css/tema.css" >
+	<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 
 </head>
 <body>
 
-	<div class="container">
+	<div class="masthead">
+		<h1>BuilderGen</h1>
+		<nav>
+			<ul class="nav nav-justified">
+				<li class="active"><a href="/">Início</a></li>
+				<li><a href="#">Downloads</a></li>
+				<li><a href="instalacao.html">Instalação</a></li>
+				<li><a href="#">Guia do Usuário</a></li>
+				<li><a href="#">Sobre</a></li>
+				<li><a href="#">Contato</a></li>
+			</ul>
+		</nav>
+	</div>
 
-		<div class="jumbotron">
-			<h1>BuilderGen</h1>
-			<p>BuilderGen é um gerador de versões para projetos de software. Seu uso é simples e fácil, e é dedicado para projetos pequenos.</p>
-
-			<p>BuilderGen não é um repositório Git nem SVN. BuilderGen é um gerador de versões que segue o [http://semver.org]</p>
+	<div class="jumbotron text-center">
+		<div class="container">
+			<h1>Baixe agora!</h1>
+			<p class="lead">BuilderGen é um gerador de versões para projetos de software. Seu uso é simples, fácil e é dedicado para projetos pequenos.</p>
 			<p><a class="btn btn-success btn-lg" href="1.0.6/BuilderGen.jar" role="button">Download 1.0.6</a></p>
 		</div>
+	</div>
 
-
+	<div class="container">
 		<h2>Qualquer projeto pode utilizar o BuilderGen</h2>
 
-		<p>BuilderGen gera versões sequenciais de builds number. Por exemplo, em builds da Microsoft você sabe que 1109 é bem antes da 14563. Contudo, a 14573 tem poucas diferenças para a 14563.</p>
+		<p>BuilderGen gera números sequenciais para versões.</p>
+		<p>Por exemplo, em builds da Microsoft você sabe que a versão 1109 é bem anterior à 14563. Contudo, a 14573 tem poucas diferenças para a 14563.</p>
 
 		<h2>Requisitos</h2>
 
@@ -44,19 +53,22 @@
 
 		<h2>Formatação</h2>
 
-		<p>O formato atual das versões é <code>1.0.{build}-{yyyyMMdd}_{HHmmss}</code> O suporte a edição do </formato será liberado em breve.
+		<p>O formato atual das versões é <code>1.0.{build}-{yyyyMMdd}_{HHmmss}</code>.</p>
 
-			<h2>Problemas e Sugestões</h2>
+		<p class="danger">O suporte a edição do formato será liberado em breve.</p>
 
-			<p>Repositório BuilderGen no Github</p>
+		<h2>Problemas e Sugestões</h2>
 
-			<p>Leia nosso Guia de Usuário. (Ainda)</p>
+		<p>Repositório BuilderGen no Github</p>
 
-			<footer>
-				<p>BuilderGen é desenvolvido por Mateus Moreira</p>
-			</footer>
+		<p>Leia nosso Guia de Usuário. (Ainda)</p>
 
-		</div>
+	</div>
 
-	</body>
-	</html>
+	<footer class="footer container">
+		<p>© 2016 BuilderGen. Desenvolvido por Mateus Moreira.</p>
+	</footer>
+
+
+</body>
+</html>

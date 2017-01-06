@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	<link rel="stylesheet" href="css/tema.css" >
+	<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+
+</head>
+<body>
+
+	<div class="masthead">
+		<h1>BuilderGen</h1>
+		<nav>
+			<ul class="nav nav-justified">
+				<li class="active"><a href="/">Início</a></li>
+				<li><a href="#">Downloads</a></li>
+				<li><a href="instalacao.html">Instalação</a></li>
+				<li><a href="#">Guia do Usuário</a></li>
+				<li><a href="#">Sobre</a></li>
+				<li><a href="#">Contato</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Instalação</h1>
+			<p class="lead">Como baixar, inicializar e gerar builds.</p>
+		</div>
+	</div>
+
+	<div class="container">
+		
+		<h2>Download</h2>
+
+		<ol>
+			<li>Baixe a versão mais atual do <code>BuilderGen.jar</code>.</li>
+			<li>Copie e cole o arquivo <code>BuilderGen.jar</code> na raiz do seu projeto.</li>
+			<li><strong>Pronto!</strong></li>
+		</ol>
+
+		<h2>Teste</h2>
+
+		<p>Abra o seu terminal e navegue até a pasta onde está o arquivo <code>BuilderGen.jar</code>.</p>
+		<p>Execute este comando para ver a versão do BuilderGen:</p>
+
+		<p><code>java -jar BuilderGen.jar version</code></p>
+
+		<p>Um código semelhante a este deve aparecer:</p>
+
+		<p><code>Version: 1.0.6-20170105_211929<br />
+		Author: Mateus Moreira<br />
+		Email: mateusgabimoreira [at] gmail [dot] com<br />
+		Website: https://mateusgabi.github.io/BuilderGen/
+		</code></p>
+
+		<h2>Inicializar</h2>
+
+		<p>Parar inicializar o contador, é bem simples. No terminal, digite:</p>
+
+		<p><code>java -jar BuilderGen.jar init</code></p>
+
+		<p>Um código semelhante a este deve aparecer:</p>
+
+		<p><code>...</code></p>
+
+		<p>Um arquivo <code>version.txt</code> é gerado.</p>
+
+		<h2>Gerar Builds</h2>
+
+		<p>Gerar build é bem fácil. Análogo ao <code>init</code>, digite:</p>
+
+		<p><code>java -jar BuilderGen.jar build</code></p>
+
+		<p>O arquivo <code>version.txt</code> será atualizado. O novo valor do <code>version.txt</code> deve ser o igual ao informado pelo terminal.</p>
+
+	</div>
+
+	<footer class="footer container">
+		<p>© 2016 BuilderGen. Desenvolvido por Mateus Moreira.</p>
+	</footer>
+
+
+
+</body>
+</html>
