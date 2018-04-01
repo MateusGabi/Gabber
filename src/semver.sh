@@ -106,12 +106,10 @@ print "Latest version: $LATEST_MAJOR_VERSION.$LATEST_MINOR_VERSION.$LATEST_PATCH
 # upgrade version
 if [[ "$MODE" = "patch" ]]; then
     export LATEST_PATCH_VERSION=$(($LATEST_PATCH_VERSION + 1))
-fi
-if [[ "$MODE" = "minor" ]]; then
+elif [[ "$MODE" = "minor" ]]; then
     export LATEST_MINOR_VERSION=$(($LATEST_MINOR_VERSION + 1))
     export LATEST_PATCH_VERSION=0
-fi
-if [[ "$MODE" = "major" ]]; then
+elif [[ "$MODE" = "major" ]]; then
     export LATEST_MAJOR_VERSION=$(($LATEST_MAJOR_VERSION + 1))
     export LATEST_MINOR_VERSION=0
     export LATEST_PATCH_VERSION=0
