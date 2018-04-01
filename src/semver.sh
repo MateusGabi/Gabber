@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-package="Builder Gen: ./semver.sh"
+package="Gabber: ./semver.sh"
 
 function print {
     if [[ "$VERBOSE" ]]; then
