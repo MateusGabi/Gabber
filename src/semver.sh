@@ -97,6 +97,7 @@ print "Last Tag Hash: $LAST_COMMIT_HASH_WITH_TAG"
 ## Avoiding duplicate tags on same commits
 if [[ "$LAST_COMMIT_HASH" = "$LAST_COMMIT_HASH_WITH_TAG" ]]; then
     echo "You cannot tag one commit with two version"
+    exit 1
 fi
 
 
@@ -175,7 +176,8 @@ fi
 ##
 ## Creating tag
 
-git tag -a v$VERSION -m "[Gabber] v$version"
-print "Tag v$VERSION created on commit $LAST_COMMIT_HASH"
+# print "git tag -a v$version $LAST_COMMIT_HASH -m '[Gabber] v$version'"
+git tag -a v$version $LAST_COMMIT_HASH -m "[Gabber] v$version"
+print "Tag v$version created on commit $LAST_COMMIT_HASH"
 
 echo "Version: $version"
