@@ -175,7 +175,7 @@ fi
 ##
 ## Creating tag
 
-print $(git tag -a v$version -m "[Gabber] v$version")
+git tag -a v$VERSION -m "[Gabber] v$version"
 print "Tag v$VERSION created on commit $LAST_COMMIT_HASH"
 
 echo "Version: $version"
