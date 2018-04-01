@@ -82,19 +82,48 @@ DIR=$PWD
 FIRST_COMMIT_DATE=$(git log --pretty=format:%cd --date=short | tail -1)
 LAST_COMMIT_DATE=$(git log -1 --pretty=format:%cd --date=short)
 LAST_COMMIT_HASH=$(git log -1 --pretty=format:%h)
-GIT_TAG=$(git tag)
+GIT_TAG=$(git tag | tail -1)
+LAST_COMMIT_HASH_WITH_TAG=$(git rev-list -n 1 $GIT_TAG --pretty=format:%h | tail -1)
 
 
-print "generate: $MODE"
-print "tag:      $GIT_TAG"
-print "hash:     $LAST_COMMIT_HASH"
+print "Generate: $MODE"
+print "Tag: $GIT_TAG"
+print "Last Commit Hash: $LAST_COMMIT_HASH"
+print "Last Tag Hash: $LAST_COMMIT_HASH_WITH_TAG"
 
-if [[ "$TAG" = "" ]]; then
+
+
+##
+## Avoiding duplicate tags on same commits
+if [[ "$LAST_COMMIT_HASH" = "$LAST_COMMIT_HASH_WITH_TAG" ]]; then
+    echo "You cannot tag one commit with two version"
+fi
+
+
+if [[ "$GIT_TAG" = "" ]]; then
     export LATEST_MAJOR_VERSION=0
     export LATEST_MINOR_VERSION=0
     export LATEST_PATCH_VERSION=0
-fi
 
+else
+    tag=${GIT_TAG//v}
+    print "STAG $tag"
+    IFS='.'
+    mails2=$IN
+    i=1
+    for x in $tag
+    do
+        if [[ "$i" = 1 ]]; then
+            export LATEST_MAJOR_VERSION=$x
+        elif [[ "$i" = 2 ]]; then
+            export LATEST_MINOR_VERSION=$x
+        elif [[ "$i" = 3 ]]; then
+            export LATEST_PATCH_VERSION=$x
+        fi
+        i=$(($i + 1))
+    done
+
+fi
 
 print "Latest version: $LATEST_MAJOR_VERSION.$LATEST_MINOR_VERSION.$LATEST_PATCH_VERSION"
 
@@ -147,5 +176,6 @@ fi
 ## Creating tag
 
 print $(git tag -a v$version -m "[Gabber] v$version")
+print "Tag v$VERSION created on commit $LAST_COMMIT_HASH"
 
 echo "Version: $version"
