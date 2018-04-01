@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 package="Gabber: ./semver.sh"
 
 function print {
@@ -12,43 +11,19 @@ function print {
 while test $# -gt 0; do
         case "$1" in
                 -h|--help)
-                        echo "$package - attempt to capture frames"
                         echo " "
-                        echo "$package [options] application [arguments]"
+                        echo "$package developed by Mateus Gabi Moreira https://twitter.com/matgabi17"
+                        echo " "
+                        echo "Use: ./semver.sh [options]"
                         echo " "
                         echo "options:"
                         echo "-h, --help                show brief help"
-                        echo "-a, --action=ACTION       specify an action to use"
-                        echo "-o, --output-dir=DIR      specify a directory to store output in"
+                        echo "--generate                major | minor | patch"
+                        echo "--verbose                 print messages at every step time"
+                        echo "--sha                     add commit sha on version"
+                        echo "--date                    add commit date on version"
+                        echo "--build-number            add a magic number as build id on version"
                         exit 0
-                        ;;
-                -a)
-                        shift
-                        if test $# -gt 0; then
-                                export PROCESS=$1
-                        else
-                                echo "no process specified"
-                                exit 1
-                        fi
-                        shift
-                        ;;
-                --action*)
-                        export PROCESS=`echo $1 | sed -e 's/^[^=]*=//g'`
-                        shift
-                        ;;
-                -o)
-                        shift
-                        if test $# -gt 0; then
-                                export OUTPUT=$1
-                        else
-                                echo "no output dir specified"
-                                exit 1
-                        fi
-                        shift
-                        ;;
-                --output-dir*)
-                        export OUTPUT=`echo $1 | sed -e 's/^[^=]*=//g'`
-                        shift
                         ;;
                 --generate*)
                         export MODE=`echo $1 | sed -e 's/^[^=]*=//g'`
@@ -140,6 +115,9 @@ if [[ "$MODE" = "major" ]]; then
     export LATEST_MAJOR_VERSION=$(($LATEST_MAJOR_VERSION + 1))
     export LATEST_MINOR_VERSION=0
     export LATEST_PATCH_VERSION=0
+else
+    echo "Generate mode not found"
+    exit 1
 fi
 
 
