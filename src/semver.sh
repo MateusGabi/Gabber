@@ -180,3 +180,6 @@ command=$(git tag -a v"$version" -m '[Gabber] Tag automatically generated')
 print "Tag v$version created on commit $LAST_COMMIT_HASH"
 
 echo "Version: $version"
+
+echo ""
+echo "      Use: git push origin --tags"
