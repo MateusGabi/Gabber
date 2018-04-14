@@ -84,8 +84,6 @@ if [[ "$GIT_TAG" = "" ]]; then
 else
     tag=${GIT_TAG//v}
     print "STAG $tag"
-    IFS='.'
-    mails2=$IN
     i=1
     for x in $tag
     do
