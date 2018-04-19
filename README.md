@@ -1,8 +1,8 @@
-# Apresentando BuilderGen #
+# Apresentando BuilderGen
 
 BuilderGen é um gerador de versões para projetos de software. Seu uso é simples e fácil, e é dedicado para projetos pequenos.
 
-BuilderGen não é um repositório Git nem SVN. BuilderGen é um gerador de versões que segue o [http://semver.org]
+BuilderGen não é um repositório Git nem SVN. BuilderGen é um gerador de versões que segue o [http://semver.org](http://semver.org)
 
 ## Qualquer projeto pode utilizar o BuilderGen ##
 
@@ -12,22 +12,22 @@ BuilderGen gera versões sequenciais de builds number. Por exemplo, em builds da
 
 1.3.5-20170105_183729
 
-##Requisitos##
+## Requisitos 
 
-*Java na versão 1.8
-*Linux
-***Não testado em Mac**
+- Java na versão 1.8
+- Linux
+- Mac ***(Não testado)***
 
-##Recomendações##
+## Recomendações 
 
 Recomendamos que o projeto utilize Git, Composer e Linux.
 
-##Formatação##
+## Formatação 
 
 O formato atual das versões é ```1.0.{build}-{yyyyMMdd}_{HHmmss}```
 O suporte a edição do formato será liberado em breve.
 
-##Problemas e Sugestões##
+## Problemas e Sugestões##
 
 Repositório BuilderGen no Github
 
