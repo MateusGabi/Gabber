@@ -27,7 +27,7 @@ Recomendamos que o projeto utilize Git, Composer e Linux.
 O formato atual das versões é ```1.0.{build}-{yyyyMMdd}_{HHmmss}```
 O suporte a edição do formato será liberado em breve.
 
-## Problemas e Sugestões##
+## Problemas e Sugestões
 
 Repositório BuilderGen no Github
 
