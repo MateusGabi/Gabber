@@ -27,6 +27,12 @@ while test $# -gt 0; do
                         ;;
                 --generate*)
                         export MODE=`echo $1 | sed -e 's/^[^=]*=//g'`
+                        export GENERATE=true
+                        shift
+                        ;;
+                --next*)
+                        export MODE=`echo $1 | sed -e 's/^[^=]*=//g'`
+                        export NEXT=true
                         shift
                         ;;
                 --verbose)
@@ -150,10 +156,14 @@ fi
 ##
 ## Creating tag
 
-command=$(git tag -a v"$version" -m '[Gabber] Tag automatically generated')
-print "Tag v$version created on commit $LAST_COMMIT_HASH"
+if [[ "$GENERATE" ]]; then
+    command=$(git tag -a v"$version" -m '[Gabber] Tag automatically generated')
+    print "Tag v$version created on commit $LAST_COMMIT_HASH"
 
-echo "Version: $version"
+    echo "Version: $version"
 
-echo ""
-echo "      Use: git push origin --tags"
+    echo ""
+    echo "      Use: git push origin --tags"
+elif [[ "$NEXT" ]]; then
+    print "Next $MODE versin is v$version"
+fi
