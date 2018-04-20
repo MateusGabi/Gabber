@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 package="Gabber: ./semver.sh"
+version="v1.3.6"
 
 function print {
     if [[ "$VERBOSE" ]]; then
@@ -14,11 +15,14 @@ while test $# -gt 0; do
                         echo " "
                         echo "$package developed by Mateus Gabi Moreira https://twitter.com/matgabi17"
                         echo " "
+                        echo "Version: $version"
+                        echo " "
                         echo "Use: ./semver.sh [options]"
                         echo " "
                         echo "options:"
                         echo "-h, --help                show brief help"
                         echo "--generate                major | minor | patch"
+                        echo "--next                    major | minor | patch"
                         echo "--verbose                 print messages at every step time"
                         echo "--sha                     add commit sha on version"
                         echo "--date                    add commit date on version"
