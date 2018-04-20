@@ -165,5 +165,7 @@ if [[ "$GENERATE" ]]; then
     echo ""
     echo "      Use: git push origin --tags"
 elif [[ "$NEXT" ]]; then
-    print "Next $MODE versin is v$version"
+    
+    echo ""
+    echo "      Next $MODE version is v$version"
 fi
