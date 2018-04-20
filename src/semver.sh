@@ -91,14 +91,17 @@ else
     tag=${GIT_TAG//v}
     print "STAG $tag"
     i=1
-    for x in $tag
+    for x in $(echo $tag | tr "." "\n")
     do
         if [[ "$i" = 1 ]]; then
             export LATEST_MAJOR_VERSION=$x
+            print "LATEST_MAJOR_VERSION: $x"
         elif [[ "$i" = 2 ]]; then
             export LATEST_MINOR_VERSION=$x
+            print "LATEST_MINOR_VERSION: $x"
         elif [[ "$i" = 3 ]]; then
             export LATEST_PATCH_VERSION=$x
+            print "LATEST_PATCH_VERSION: $x"
         fi
         i=$(($i + 1))
     done
