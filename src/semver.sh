@@ -76,7 +76,7 @@ print "Last Tag Hash: $LAST_COMMIT_HASH_WITH_TAG"
 
 ##
 ## Avoiding duplicate tags on same commits
-if [[ "$LAST_COMMIT_HASH" = "$LAST_COMMIT_HASH_WITH_TAG" ]]; then
+if [[ "$LAST_COMMIT_HASH" = "$LAST_COMMIT_HASH_WITH_TAG" && "$GENERATE" ]]; then
     echo "You cannot tag one commit with two version"
     exit 1
 fi
@@ -100,6 +100,10 @@ else
             export LATEST_MINOR_VERSION=$x
             print "LATEST_MINOR_VERSION: $x"
         elif [[ "$i" = 3 ]]; then
+            x="$x-+"
+            x=$(echo "$x" | grep -oP "[0-9]*(-|\+)" | head -1)
+            x=${x//-}
+            x=${x//+}
             export LATEST_PATCH_VERSION=$x
             print "LATEST_PATCH_VERSION: $x"
         fi
