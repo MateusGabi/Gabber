@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 package="Gabber: ./semver.sh"
+version="v1.3.6"
 
 function print {
     if [[ "$VERBOSE" ]]; then
@@ -14,11 +15,14 @@ while test $# -gt 0; do
                         echo " "
                         echo "$package developed by Mateus Gabi Moreira https://twitter.com/matgabi17"
                         echo " "
+                        echo "Version: $version"
+                        echo " "
                         echo "Use: ./semver.sh [options]"
                         echo " "
                         echo "options:"
                         echo "-h, --help                show brief help"
                         echo "--generate                major | minor | patch"
+                        echo "--next                    major | minor | patch"
                         echo "--verbose                 print messages at every step time"
                         echo "--sha                     add commit sha on version"
                         echo "--date                    add commit date on version"
@@ -27,6 +31,12 @@ while test $# -gt 0; do
                         ;;
                 --generate*)
                         export MODE=`echo $1 | sed -e 's/^[^=]*=//g'`
+                        export GENERATE=true
+                        shift
+                        ;;
+                --next*)
+                        export MODE=`echo $1 | sed -e 's/^[^=]*=//g'`
+                        export NEXT=true
                         shift
                         ;;
                 --verbose)
@@ -70,7 +80,7 @@ print "Last Tag Hash: $LAST_COMMIT_HASH_WITH_TAG"
 
 ##
 ## Avoiding duplicate tags on same commits
-if [[ "$LAST_COMMIT_HASH" = "$LAST_COMMIT_HASH_WITH_TAG" ]]; then
+if [[ "$LAST_COMMIT_HASH" = "$LAST_COMMIT_HASH_WITH_TAG" && "$GENERATE" ]]; then
     echo "You cannot tag one commit with two version"
     exit 1
 fi
@@ -85,14 +95,21 @@ else
     tag=${GIT_TAG//v}
     print "STAG $tag"
     i=1
-    for x in $tag
+    for x in $(echo $tag | tr "." "\n")
     do
         if [[ "$i" = 1 ]]; then
             export LATEST_MAJOR_VERSION=$x
+            print "LATEST_MAJOR_VERSION: $x"
         elif [[ "$i" = 2 ]]; then
             export LATEST_MINOR_VERSION=$x
+            print "LATEST_MINOR_VERSION: $x"
         elif [[ "$i" = 3 ]]; then
+            x="$x-+"
+            x=$(echo "$x" | grep -oP "[0-9]*(-|\+)" | head -1)
+            x=${x//-}
+            x=${x//+}
             export LATEST_PATCH_VERSION=$x
+            print "LATEST_PATCH_VERSION: $x"
         fi
         i=$(($i + 1))
     done
@@ -150,10 +167,16 @@ fi
 ##
 ## Creating tag
 
-command=$(git tag -a v"$version" -m '[Gabber] Tag automatically generated')
-print "Tag v$version created on commit $LAST_COMMIT_HASH"
+if [[ "$GENERATE" ]]; then
+    command=$(git tag -a v"$version" -m '[Gabber] Tag automatically generated')
+    print "Tag v$version created on commit $LAST_COMMIT_HASH"
 
-echo "Version: $version"
+    echo "Version: $version"
 
-echo ""
-echo "      Use: git push origin --tags"
+    echo ""
+    echo "      Use: git push origin --tags"
+elif [[ "$NEXT" ]]; then
+    
+    echo ""
+    echo "      Next $MODE version is v$version"
+fi
