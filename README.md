@@ -1,34 +1,36 @@
-# Apresentando BuilderGen
+# Introducing Gabber
 
-BuilderGen é um gerador de versões para projetos de software. Seu uso é simples e fácil, e é dedicado para projetos pequenos.
+Gabber is a lightweight generator of build numbers that uses Semantic Versioning 2.0.0 [http://semver.org](http://semver.org)
 
-BuilderGen não é um repositório Git nem SVN. BuilderGen é um gerador de versões que segue o [http://semver.org](http://semver.org).
+## Anyone can uses
 
-## Qualquer projeto pode utilizar o BuilderGen ##
+Gabber generates sequential versions of builds number. For example, in Microsoft builds you know that 1109 is well before 14563. However, 14573 has few differences for 14563.
 
-BuilderGen gera versões sequenciais de builds number. Por exemplo, em builds da Microsoft você sabe que 1109 é bem antes da 14563. Contudo, a 14573 tem poucas diferenças para a 14563.
+Just run into a git repo:
 
-## Versão atual
+`$ curl -s https://raw.githubusercontent.com/MateusGabi/Gabber/master/src/semver.sh | bash -s -- --help`
 
-1.3.5-20170105_183729
+## Features
 
-## Requisitos 
+### Generates Git Tags
 
-- Java na versão 1.8
-- Linux
-- Mac ***(Não testado)***
+Major Updates: `$ curl -s https://raw.githubusercontent.com/MateusGabi/Gabber/master/src/semver.sh | bash -s -- --generate=major`
+Minor Updates: `$ curl -s https://raw.githubusercontent.com/MateusGabi/Gabber/master/src/semver.sh | bash -s -- --generate=minor`
+Patch Updates: `$ curl -s https://raw.githubusercontent.com/MateusGabi/Gabber/master/src/semver.sh | bash -s -- --generate=patch`
 
-## Recomendações 
+### Next Version
 
-Recomendamos que o projeto utilize Git, Composer e Linux.
+Major Updates: `$ curl -s https://raw.githubusercontent.com/MateusGabi/Gabber/master/src/semver.sh | bash -s -- --next=major`
+Minor Updates: `$ curl -s https://raw.githubusercontent.com/MateusGabi/Gabber/master/src/semver.sh | bash -s -- --next=minor`
+Patch Updates: `$ curl -s https://raw.githubusercontent.com/MateusGabi/Gabber/master/src/semver.sh | bash -s -- --next=patch`
 
-## Formatação 
+**For every code above, you can add some flags: **
 
-O formato atual das versões é ```1.0.{build}-{yyyyMMdd}_{HHmmss}```
-O suporte a edição do formato será liberado em breve.
+--verbose: print messages at every step time
+--sha: add commit sha on version
+--date: add commit date on version
+--build-number: add a magic number as build id on version
 
-## Problemas e Sugestões
+## Requirements 
 
-Repositório BuilderGen no Github
-
-Leia nosso Guia de Usuário. (Ainda)
+- Git
