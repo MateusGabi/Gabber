@@ -15,21 +15,28 @@ Just run into a git repo:
 ### Generates Git Tags
 
 Major Updates: `$ curl -s https://raw.githubusercontent.com/MateusGabi/Gabber/master/src/semver.sh | bash -s -- --generate=major`
+
 Minor Updates: `$ curl -s https://raw.githubusercontent.com/MateusGabi/Gabber/master/src/semver.sh | bash -s -- --generate=minor`
+
 Patch Updates: `$ curl -s https://raw.githubusercontent.com/MateusGabi/Gabber/master/src/semver.sh | bash -s -- --generate=patch`
 
 ### Next Version
 
 Major Updates: `$ curl -s https://raw.githubusercontent.com/MateusGabi/Gabber/master/src/semver.sh | bash -s -- --next=major`
+
 Minor Updates: `$ curl -s https://raw.githubusercontent.com/MateusGabi/Gabber/master/src/semver.sh | bash -s -- --next=minor`
+
 Patch Updates: `$ curl -s https://raw.githubusercontent.com/MateusGabi/Gabber/master/src/semver.sh | bash -s -- --next=patch`
 
-**For every code above, you can add some flags: **
+**For every code above, you can add some flags:**
 
---verbose: print messages at every step time
---sha: add commit sha on version
---date: add commit date on version
---build-number: add a magic number as build id on version
+`--verbose`: print messages at every step time
+
+`--sha`: add commit sha on version
+
+`--date`: add commit date on version
+
+`--build-number`: add a magic number as build id on version
 
 ## Requirements 
 
